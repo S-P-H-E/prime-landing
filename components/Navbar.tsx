@@ -3,8 +3,8 @@ import { BsArrowRightShort } from 'react-icons/bs'
 
 export default function Navbar(){
     return(
-        <div className="p-10 flex justify-between items-center">
-            <h1 className="text-2xl font-medium w-full cursor-pointer">PRIME Co.</h1>
+        <div className="p-10 flex justify-between items-center bg-[--bg]">
+            <h1 className="text-2xl font-medium w-full cursor-pointer">PRIME</h1>
             <div className="flex justify-center gap-7 w-full">
                 <div className="flex flex-col group">
                     <button className="font-medium">Home</button>

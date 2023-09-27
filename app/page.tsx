@@ -3,18 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRightShort, BsPeopleFill } from 'react-icons/bs'
 import { FaGraduationCap } from 'react-icons/fa'
+import * as React from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const features = [
     {
       id: 1,
-      icon: <FaGraduationCap size={30}/>,
+      icon: <FaGraduationCap size={50}/>,
       name: 'Basic to Advanced',
       description: 'Take small steps and gradually learn more about charting and trading crypto'
     },
     {
       id: 2,
-      icon: <BsPeopleFill size={30}/>,
+      icon: <BsPeopleFill size={50}/>,
       name: 'Community',
       description: 'A community that helps you develop a non stopping mindset'
     }
@@ -24,7 +26,8 @@ export default function Home() {
       <Navbar />
 
       {/* Home */}
-      <div className="flex flex-col justify-center items-center pt-16 gap-5">
+      <div className="flex flex-col justify-center items-center h-[600px] gap-5 bg-[--bg] rounded-b-3xl">
+        {/* <div className="gradient-01 w-full h-[500px] absolute -z-10 top-[500px]"/> */}
         {/* <Link href={'https://discord.gg/cKtCtzXcY5'} target="_blank" className="flex text-[--bg] bg-[--text] px-4 py-2 rounded-full cursor-pointer border border-transparent transition-all hover:border-[--desc]">
           <p>Join our FREE community</p>
           <BsArrowRightShort size={24}/>
@@ -39,23 +42,29 @@ export default function Home() {
                 <BsArrowRightShort size={24}/>
             </div>
         </Link>
-        <div className="flex flex-row">
-          <Image src={'/img1.png'} alt="image" width={300} height={0} className="shadow-2xl rounded-2xl relative bottom-[90px] right-[200px]"/>
-          <Image src={'/img2.png'} alt="image" width={300} height={0} className="shadow-2xl rounded-2xl relative bottom-[50px] left-[200px]"/>
-        </div>
+
+        {/* <div className="flex justify-center items-center w-full gap-4 h-[400px]">
+          <Image src={'/img4.png'} alt="image" width={250} height={0} className="shadow-2xl rounded-2xl"/>
+          <Image src={'/img1.png'} alt="image" width={500} height={0} className="shadow-2xl rounded-2xl"/>
+          <Image src={'/img3.png'} alt="image" width={250} height={0} className="shadow-2xl rounded-2xl"/>
+        </div> */}
       </div>
 
       {/* Features */}
-      <div className="flex flex-col justify-center items-center">
-        <p className="flex text-[--bg] bg-[--text] px-4 py-2 rounded-full cursor-pointer border border-transparent transition-all hover:border-[--desc]">
+      <div className="flex flex-col justify-center items-center pt-10">
+        {/* <p className="flex text-[--bg] bg-[--text] px-4 py-2 rounded-full border border-transparent transition-all hover:border-[--desc]">
           Benefits
-        </p>
-        <div className="flex gap-5 py-7">
+        </p> */}
+        <div className="flex flex-col py-7">
           {features.map((feature) => (
-            <div key={feature.id} className="border border-[--highlight] p-5 rounded-2xl w-[400px]">
-              {feature.icon}
-              <h1 className="text-3xl">{feature.name}</h1>
-              <p>{feature.description}</p>
+            <div key={feature.id} className="gap-3 my-10 rounded-2xl w-[400px] flex justify-center items-center">
+              <div className="bg-[--highlight] text-[--bg] p-5 rounded-2xl">
+                {feature.icon}
+              </div>
+              <div className="flex flex-col">
+                <h1 className="text-3xl">{feature.name}</h1>
+                <p >{feature.description}</p>
+              </div>
             </div>
           ))}
         </div>

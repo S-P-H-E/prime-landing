@@ -3,14 +3,28 @@
 @tailwind utilities;
 
 * {
-  --desc: #6E7584;
+  --desc: #B9BBC1;
   --hover: #1c1c21;
-  --text: #252B34;
-  --highlight: #252B34;
-  --bg: #FFFFFF;
+  --text: #FFFFFF;
+  --highlight: #CEC4A1;
+  --bg: #0A0A0B;
 }
 
 body {
   color: var(--text);
-  background-color: var(--bg);
+}
+
+.gradient-01 {
+  background-image: linear-gradient(
+    270deg,
+    #252B34 0%,
+    #252B34 26%,
+    #252B34 39%,
+    #252B34 50%,
+    #252B34 61%,
+    #252B34 74%,
+    #252B34 100%
+  );
+  filter: blur(225px);
+  opacity: 1;
 }
