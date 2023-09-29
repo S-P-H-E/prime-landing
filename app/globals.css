@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 * {
-  --desc: #B9BBC1;
+  --desc: #6E7584;
   --hover: #1c1c21;
-  --text: #FFFFFF;
-  --highlight: #CEC4A1;
-  --bg: #0A0A0B;
+  --text: #252B34;
+  --highlight: #252B34;
+  --bg: #FFFFFF;
 }
 
 body {
   color: var(--text);
+  background-color: var(--bg);
 }
 
 .gradient-01 {

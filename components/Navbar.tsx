@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import { BsArrowRightShort } from 'react-icons/bs'
 
 export default function Navbar(){
+
     return(
         <div className="p-10 flex justify-between items-center bg-[--bg]">
             <h1 className="text-2xl font-medium w-full cursor-pointer">PRIME</h1>
@@ -34,6 +36,7 @@ export default function Navbar(){
 }
 
 export function NavbarItems(){
-    return 
+    const [nav, setNav] = useState(null)
+    return {nav}
 }
 
