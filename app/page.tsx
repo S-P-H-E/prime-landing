@@ -90,20 +90,26 @@ const features = [
     
   ]
 
-  const benefitsRef = useRef(null);
-  const pricingRef = useRef(null);
-  const faqsRef = useRef(null);
+  const benefitsRef = useRef<HTMLDivElement>(null);
+  const pricingRef = useRef<HTMLDivElement>(null);
+  const faqsRef = useRef<HTMLDivElement>(null);
 
   const scrollToBenefits = () => {
-    benefitsRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (benefitsRef.current) {
+      benefitsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const scrollToPricing = () => {
-    pricingRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (pricingRef.current) {
+      pricingRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const scrollToFAQs = () => {
-    faqsRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (faqsRef.current) {
+      faqsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
