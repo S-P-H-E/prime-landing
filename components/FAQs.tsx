@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
@@ -51,15 +51,15 @@ const faqs = [
   ];
 
 export default function FAQs() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const toggleExpanded = (index) => {
-    if (index === expandedIndex) {
-      setExpandedIndex(null);
-    } else {
-      setExpandedIndex(index);
-    }
-  };
+    const toggleExpanded = (index: number | null) => {
+      if (index === expandedIndex) {
+        setExpandedIndex(null);
+      } else {
+        setExpandedIndex(index);
+      }
+    };
 
 const [ref, inView] = useInView({
     triggerOnce: true, // Animation triggers only once when entering the viewport
