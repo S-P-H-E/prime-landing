@@ -9,8 +9,34 @@ import clsx from 'clsx';
 import { useSpring, animated } from 'react-spring';
 import { useRef } from "react"
 import FAQs from '@/components/FAQs';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6516f893ccd327000781201a' },
+            url: 'https://general-runtime.voiceflow.com/',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    `;
+    document.body.appendChild(script);
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+  
   const fadeInAnimationVariants = { 
     initial: {
         opacity: 0,
