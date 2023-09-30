@@ -58,11 +58,11 @@ export default function Home() {
         <div className="flex flex-col py-7">
           {features.map((feature) => (
             <div key={feature.id} className="gap-3 my-10 rounded-2xl w-[400px] flex justify-center items-center">
-              <div className="bg-[--highlight] text-[--bg] p-5 rounded-2xl">
+              <div className="bg-[--highlight] text-[--highlight] p-5 rounded-2xl">
                 {feature.icon}
               </div>
               <div className="flex flex-col">
-                <h1 className="text-3xl">{feature.name}</h1>
+                <h1 className="text-3xl text-[--highlight]">{feature.name}</h1>
                 <p >{feature.description}</p>
               </div>
             </div>
