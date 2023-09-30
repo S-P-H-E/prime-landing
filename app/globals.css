@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 * {
-  --desc: #B9BBC1;
+  --desc: #6E7584;
   --hover: #1c1c21;
-  --text: #FFFFFF;
-  --highlight: #CEC4A1;
-  --bg: #0A0A0B;
+  --text: #252B34;
+  --highlight: #252B34;
+  --bg: #FFFFFF;
 }
 
 body {
   color: var(--text);
+  background-color: var(--bg);
 }
 
 .gradient-01 {
@@ -27,4 +28,105 @@ body {
   );
   filter: blur(225px);
   opacity: 1;
+}
+
+.get-started {
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  padding: 0.5em 0.75em;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--bg);
+  transition: all 1000ms;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid var(--bg);
+}
+
+.get-started:hover {
+  color: var(--highlight);
+  transform: scale(1.1);
+  outline: 2px solid var(--bg);
+  box-shadow: 4px 5px 17px -4px var(--bg);
+}
+
+.get-started::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--bg);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 700ms;
+}
+
+.get-started:hover::before {
+  width: 250%;
+}
+
+/* get started */
+.get-started-blue {
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  padding: 0.5em 0.75em;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--highlight);
+  transition: all 1000ms;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid var(--highlight);
+}
+
+.get-started-blue:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid var(--highlight);
+  box-shadow: 4px 5px 17px -4px var(--highlight);
+}
+
+.get-started-blue::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--highlight);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 700ms;
+}
+
+.get-started-blue:hover::before {
+  width: 250%;
+}
+
+.icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon.down {
+  transform: rotate(0deg);
+}
+
+.icon.up {
+  transform: rotate(180deg);
+}
+
+.answer-container {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.answer-container.expanded {
+  max-height: 200px; /* Set a fixed max height for the answer container */
 }
