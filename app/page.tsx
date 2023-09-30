@@ -293,7 +293,7 @@ const features = [
               <h1 className={clsx('text-xl rounded-full text-center', price.status === 'Popular' ? 'bg-[--bg] text-[--highlight]' : 'bg-[--highlight] text-[--bg]')}>{price.name}</h1>
               <h2 className='text-5xl font-medium py-5'>${price.price}<mark className='text-[--desc] bg-transparent text-sm'>/month</mark></h2>
               {price.benefits.map((benefit) => (
-                <div className='flex gap-1 items-center py-3'>
+                <div key={1} className='flex gap-1 items-center py-3'>
                   <BsFillCheckCircleFill />
                   <p>{benefit}</p>
                 </div>
