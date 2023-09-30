@@ -71,7 +71,7 @@ const QuestionAnimation = useSpring({
 });  
 
   return (
-    <div className='md:w-[1500px]'>
+    <div className='md:w-full'>
       {faqs.map((faq, index) => (
         <animated.div ref={ref} style={QuestionAnimation} key={index} className='bg-[--highlight] my-4 p-4 rounded-2xl'>
           <button className='text-[--bg] font-bold md:font-medium text-[14px] md:text-2xl flex justify-between w-full items-center' onClick={() => toggleExpanded(index)}>
