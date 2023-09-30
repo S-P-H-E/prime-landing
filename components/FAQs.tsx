@@ -1,7 +1,6 @@
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
-import { useSpring, animated } from 'react-spring';
-import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
 
 const faqs = [
     {
@@ -61,19 +60,32 @@ export default function FAQs() {
       }
     };
 
-const [ref, inView] = useInView({
-    triggerOnce: true, // Animation triggers only once when entering the viewport
-});  
-
-const QuestionAnimation = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'scaleY(1)' : 'scaleY(0)',
-});  
+    const fadeInAnimationVariants = { 
+      initial: {
+          opacity: 0,
+          y: 100,
+      },
+      animate: (index: number) => ({
+          opacity: 1,
+          y: 0,
+          transition: {
+              delay: 0.05 * index,
+          }
+      })
+    }
 
   return (
     <div className='md:w-full'>
       {faqs.map((faq, index) => (
-        <animated.div ref={ref} style={QuestionAnimation} key={index} className='bg-[--highlight] my-4 p-4 rounded-2xl'>
+        <motion.div 
+          initial='initial'
+          variants={fadeInAnimationVariants}
+          whileInView="animate"
+          viewport={{
+              once: true,
+            }}
+            
+            key={index} className='bg-[--highlight] my-4 p-4 rounded-2xl'>
           <button className='text-[--bg] font-bold md:font-medium text-[14px] md:text-2xl flex justify-between w-full items-center' onClick={() => toggleExpanded(index)}>
             {faq.question}
             <div className={`icon ${expandedIndex === index ? 'up' : 'down'}`}>
@@ -83,7 +95,7 @@ const QuestionAnimation = useSpring({
           <div className={`answer-container ${expandedIndex === index ? 'expanded' : ''}`}>
             <p className='my-3 text-[#858585]'>{faq.answer}</p>
           </div>
-        </animated.div>
+        </motion.div>
       ))}
     </div>
   );
